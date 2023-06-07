@@ -1,0 +1,110 @@
+[
+  {
+    "Picture": "https://i.ibb.co/tmG4KVn/radpanzer-model-military-vehicle-163546.jpg",
+    "Name": "Racing Red",
+    "Price": 19.99,
+    "Rating": 4.5,
+    "CategoryId": 1,
+    "Category": "Sports Cars",
+    "AvailableQuantity": 10
+  },
+  {
+    "Picture": "https://i.ibb.co/C6Dy1zb/messerschmitt-kr200-classic-car-oldtimer-automobile-50697.jpg",
+    "Name": "Off-Road Adventure",
+    "Price": 24.99,
+    "Rating": 4.2,
+    "CategoryId": 2,
+    "Category": "Off-Road Vehicles",
+    "AvailableQuantity": 5
+  },
+  {
+    "Picture": "https://i.ibb.co/dWn4Bt7/pexels-photo-5997674.jpg",
+    "Name": "Super Speedster",
+    "Price": 34.99,
+    "Rating": 4.7,
+    "CategoryId": 1,
+    "Category": "Sports Cars",
+    "AvailableQuantity": 8
+  },
+  {
+    "Picture": "https://i.ibb.co/J3V5x6N/pexels-photo-15748027.webp",
+    "Name": "Convertible Cruiser",
+    "Price": 29.99,
+    "Rating": 4.3,
+    "CategoryId": 2,
+    "Category": "Off-Road Vehicles",
+    "AvailableQuantity": 12
+  },
+  {
+    "Picture": "https://i.ibb.co/5jwS7fj/pexels-photo-97353.webp",
+    "Name": "Monster Truck Madness",
+    "Price": 39.99,
+    "Rating": 4.8,
+    "CategoryId": 1,
+    "Category": "Sports Cars",
+    "AvailableQuantity": 3
+  },
+  {
+    "Picture": "https://i.ibb.co/QkBqNN7/pexels-photo-10216077.webp",
+    "Name": "City Commuter",
+    "Price": 14.99,
+    "Rating": 4.1,
+    "CategoryId": 3,
+    "Category": "Urban Cars",
+    "AvailableQuantity": 6
+  },
+  {
+    "Picture": "https://i.ibb.co/YPVqXBv/pexels-photo-4114492.webp",
+    "Name": "Race Track Champion",
+    "Price": 42.99,
+    "Rating": 4.9,
+    "CategoryId": 3,
+    "Category": "Urban Cars",
+    "AvailableQuantity": 2
+  },
+  {
+    "Picture": "https://i.ibb.co/Sd7WgDG/pexels-photo-5471952.jpg",
+    "Name": "Police Pursuit",
+    "Price": 27.99,
+    "Rating": 4.4,
+    "CategoryId": 2,
+    "Category": "Off-Road Vehicles",
+    "AvailableQuantity": 9
+  },
+  {
+    "Picture": "https://i.ibb.co/QKHmLkQ/pexels-photo-5989806.jpg",
+    "Name": "Vintage Classic",
+    "Price": 31.99,
+    "Rating": 4.6,
+    "CategoryId": 3,
+    "Category": "Urban Cars",
+    "AvailableQuantity": 7
+  },
+  {
+    "Picture": "https://i.ibb.co/9b0ZvbJ/pexels-photo-7631694.jpg",
+    "Name": "Remote Control Rally",
+    "Price": 49.99,
+    "Rating": 4.9,
+    "CategoryId": 1,
+    "Category": "Sports Cars",
+    "AvailableQuantity": 4
+  },
+  {
+    "Picture": "https://i.ibb.co/yPTNkWy/pexels-photo-7127058.jpg",
+    "Name": "Sports Speedster",
+    "Price": 36.99,
+    "Rating": 4.7,
+    "CategoryId": 1,
+    "Category": "Sports Cars",
+    "AvailableQuantity": 11
+  },
+  {
+    "Picture": "https://i.ibb.co/ZGFTWzv/pexels-photo-12705830.jpg",
+    "Name": "Construction Crew",
+    "Price": 19.99,
+    "Rating": 4.3,
+    "CategoryId": 3,
+    "Category": "Urban Cars",
+    "AvailableQuantity": 15
+  }
+]
