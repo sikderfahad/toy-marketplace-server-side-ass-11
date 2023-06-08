@@ -32,17 +32,28 @@ async function run() {
 
     const database = client.db("toy-shop");
     const homeToysCollection = database.collection("homeToyes");
+    const addUserToyCollection = database.collection("userAddedToy");
 
+    // READ  =>  get all home page display Toy
     app.get("/toyes", async (req, res) => {
       const result = await homeToysCollection.find().toArray();
       res.send(result);
     });
 
+    // READ  =>  get a single home page display Toy
     app.get("/toyes/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
       const result = await homeToysCollection.findOne(query);
       res.send(result);
+    });
+
+    // CREATE  =>  add new toy by user
+    app.post("/addToy", async (req, res) => {
+      const toy = req.body;
+      const result = await addUserToyCollection.insertOne(toy);
+      res.send(result);
+      console.log(toy);
     });
 
     // Send a ping to confirm a successful connection
