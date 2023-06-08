@@ -65,9 +65,17 @@ async function run() {
       console.log(result);
     });
 
-    // READ  all user data
+    // READ  all user toy data
     app.get("/allToys", async (req, res) => {
       const result = await addUserToyCollection.find().toArray();
+      res.send(result);
+    });
+
+    // READ  a single user created toy
+    app.get("/allToys/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await addUserToyCollection.findOne(query);
       res.send(result);
     });
 
