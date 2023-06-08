@@ -14,7 +14,7 @@ app.use(express.json());
 
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
-  "mongodb+srv://<username>:<password>@cluster0.3zuhxgd.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://toy-man:oTw4jsQdGVv3Byv6@cluster0.3zuhxgd.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -29,6 +29,15 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
+    const database = client.db("toy-shop");
+    const homeToysCollection = database.collection("homeToyes");
+
+    app.get("/toyes", async (req, res) => {
+      const result = await homeToysCollection.find().toArray();
+      res.send(result);
+    });
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
@@ -36,17 +45,13 @@ async function run() {
     );
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
   res.send("Toyes server is Running...!");
-});
-
-app.get("/toyes", (req, res) => {
-  res.send(data);
 });
 
 app.listen(port, () => {
