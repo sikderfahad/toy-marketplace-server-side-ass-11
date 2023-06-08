@@ -80,10 +80,50 @@ async function run() {
     });
 
     // DELETE a user created Toy
-    app.delete("/alToys/:id", async (req, res) => {
+    app.delete("/allToys/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
       const result = await addUserToyCollection.deleteOne(query);
+      res.send(result);
+      console.log(result);
+    });
+
+    // UPDATE a user created Toy
+    app.put("/allToys/:id", async (req, res) => {
+      const id = req.params.id;
+      const toy = req.body;
+      const {
+        sellerName,
+        email,
+        photo,
+        toyName,
+        category,
+        details,
+        quantity,
+        rating,
+        price,
+      } = toy;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedToy = {
+        $set: {
+          sellerName,
+          email,
+          photo,
+          toyName,
+          category,
+          details,
+          quantity,
+          rating,
+          price,
+        },
+      };
+
+      const result = await addUserToyCollection.updateOne(
+        filter,
+        updatedToy,
+        options
+      );
       res.send(result);
     });
 
