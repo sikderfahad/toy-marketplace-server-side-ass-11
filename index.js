@@ -12,7 +12,7 @@ app.use(express.json());
 // toy-man
 // oTw4jsQdGVv3Byv6
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri =
   "mongodb+srv://toy-man:oTw4jsQdGVv3Byv6@cluster0.3zuhxgd.mongodb.net/?retryWrites=true&w=majority";
 
@@ -35,6 +35,13 @@ async function run() {
 
     app.get("/toyes", async (req, res) => {
       const result = await homeToysCollection.find().toArray();
+      res.send(result);
+    });
+
+    app.get("/toyes/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await homeToysCollection.findOne(query);
       res.send(result);
     });
 
