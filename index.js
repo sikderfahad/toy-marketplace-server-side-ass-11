@@ -25,7 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    client.connect();
 
     const database = client.db("toy-shop");
     const homeToysCollection = database.collection("homeToyes");
@@ -51,6 +51,24 @@ async function run() {
       const result = await addUserToyCollection.insertOne(toy);
       res.send(result);
       console.log(toy);
+    });
+
+    // READ  some of data for specific user
+    app.get("/userAllToys", async (req, res) => {
+      let query = {};
+      if (req.query?.email) {
+        query = { email: req.query.email };
+      }
+
+      const result = await addUserToyCollection.find(query).toArray();
+      res.send(result);
+      console.log(result);
+    });
+
+    // READ  all user data
+    app.get("/allToys", async (req, res) => {
+      const result = await addUserToyCollection.find().toArray();
+      res.send(result);
     });
 
     // Send a ping to confirm a successful connection
