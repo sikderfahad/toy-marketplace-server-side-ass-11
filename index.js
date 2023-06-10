@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const data = require("./data.json");
+// const data = require("./data.json");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -65,8 +65,29 @@ async function run() {
       console.log(result);
     });
 
-    // READ  all user toy data
-    app.get("/allToys", async (req, res) => {
+    // READ  some of data for specific user (sort by price ascending order)
+    app.get("/userAllToysAsc", async (req, res) => {
+      let query = {};
+      if (req.query?.email) {
+        query = { email: req.query.email };
+      }
+
+      const result = await addUserToyCollection
+        .find(query)
+        .sort({ price: 1 })
+        .toArray();
+      res.send(result);
+      console.log(result);
+    });
+
+    // READ  all user toy data (limit 20)
+    app.get("/allToysLimit", async (req, res) => {
+      const result = await addUserToyCollection.find().limit(20).toArray();
+      res.send(result);
+    });
+
+    // READ  all user toy data (No Limit)
+    app.get("/allToysFull", async (req, res) => {
       const result = await addUserToyCollection.find().toArray();
       res.send(result);
     });
