@@ -146,6 +146,7 @@ async function run() {
         options
       );
       res.send(result);
+      console.log(result);
     });
 
     // Send a ping to confirm a successful connection
