@@ -30,10 +30,24 @@ async function run() {
     const database = client.db("toy-shop");
     const homeToysCollection = database.collection("homeToyes");
     const addUserToyCollection = database.collection("userAddedToy");
+    const subscriber = database.collection("subscriber");
 
     // READ  =>  get all home page display Toy
     app.get("/toyes", async (req, res) => {
       const result = await homeToysCollection.find().toArray();
+      res.send(result);
+    });
+
+    // CREATE  =>  add subscriber email
+    app.post("/subscribe", async (req, res) => {
+      const subscriberMail = req.body;
+      const result = await subscriber.insertOne(subscriberMail);
+      res.send(result);
+      console.log(result);
+    });
+
+    app.get("/subscribe", async (req, res) => {
+      const result = await subscriber.find().toArray();
       res.send(result);
     });
 
